@@ -1,0 +1,3 @@
+[submodule "intro-to-foundry/foundry-play/lib/ds-test"]
+	path = intro-to-foundry/foundry-play/lib/ds-test
+	url = https://github.com/dapphub/ds-test
