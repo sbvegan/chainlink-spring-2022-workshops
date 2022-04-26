@@ -1,0 +1,123 @@
+{
+  "_format": "ethers-rs-sol-cache-3",
+  "paths": {
+    "artifacts": "out",
+    "sources": "src",
+    "tests": "test",
+    "libraries": [
+      "lib"
+    ]
+  },
+  "files": {
+    "/home/soyboy/code/chainlink-spring-2022-workshops/intro-to-foundry/foundry-play/lib/ds-test/src/test.sol": {
+      "lastModificationDate": 1650865484289,
+      "contentHash": "82a8604fe648c30a9bd56444368704f0",
+      "sourceName": "lib/ds-test/src/test.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": ">=0.5.0",
+      "artifacts": {
+        "DSTest": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "test.sol/DSTest.json"
+        }
+      }
+    },
+    "/home/soyboy/code/chainlink-spring-2022-workshops/intro-to-foundry/foundry-play/src/Contract.sol": {
+      "lastModificationDate": 1650865654545,
+      "contentHash": "b65ef6b0a6ab49be3ba9203c061ff903",
+      "sourceName": "src/Contract.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {}
+    },
+    "/home/soyboy/code/chainlink-spring-2022-workshops/intro-to-foundry/foundry-play/test/Contract.t.sol": {
+      "lastModificationDate": 1650866024384,
+      "contentHash": "0514ddb4a9c951204fa25f90fdffc03b",
+      "sourceName": "test/Contract.t.sol",
+      "solcConfig": {
+        "settings": {
+          "optimizer": {
+            "enabled": true,
+            "runs": 200
+          },
+          "metadata": {
+            "bytecodeHash": "ipfs"
+          },
+          "outputSelection": {
+            "*": {
+              "": [
+                "ast"
+              ],
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ]
+            }
+          },
+          "evmVersion": "london"
+        }
+      },
+      "imports": [
+        "lib/ds-test/src/test.sol",
+        "src/Contract.sol"
+      ],
+      "versionRequirement": "^0.8.13",
+      "artifacts": {
+        "ContractTest": {
+          "0.8.13+commit.abaa5c0e.Linux.gcc": "Contract.t.sol/ContractTest.json"
+        }
+      }
+    }
+  }
+}

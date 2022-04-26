@@ -1,0 +1,218 @@
+{
+  "abi": [
+    {
+      "inputs": [],
+      "name": "number",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "newNumber",
+          "type": "uint256"
+        }
+      ],
+      "name": "setNumber",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": {
+    "object": "0x608060405234801561001057600080fd5b5060b18061001f6000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c80633fb5c1cb1460375780638381f58a146049575b600080fd5b604760423660046063565b600055565b005b605160005481565b60405190815260200160405180910390f35b600060208284031215607457600080fd5b503591905056fea2646970667358221220b045c9d72c3ce3fed7378a2e72ae96d074db628a62fff6d947d89d7742c06e3c64736f6c634300080d0033",
+    "sourceMap": "65:134:1:-:0;;;;;;;;;;;;;;;;;;;",
+    "linkReferences": {}
+  },
+  "deployedBytecode": {
+    "object": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c80633fb5c1cb1460375780638381f58a146049575b600080fd5b604760423660046063565b600055565b005b605160005481565b60405190815260200160405180910390f35b600060208284031215607457600080fd5b503591905056fea2646970667358221220b045c9d72c3ce3fed7378a2e72ae96d074db628a62fff6d947d89d7742c06e3c64736f6c634300080d0033",
+    "sourceMap": "65:134:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;117:80;;;;;;:::i;:::-;172:6;:18;117:80;;;89:21;;;;;;;;;345:25:3;;;333:2;318:18;89:21:1;;;;;;;14:180:3;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;-1:-1:-1;165:23:3;;14:180;-1:-1:-1;14:180:3:o",
+    "linkReferences": {}
+  },
+  "ast": {
+    "absolutePath": "/home/soyboy/code/chainlink-spring-2022-workshops/intro-to-foundry/foundry-play/src/Contract.sol",
+    "exportedSymbols": {
+      "Contract": [
+        1801
+      ]
+    },
+    "id": 1802,
+    "license": "UNLICENSED",
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 1788,
+        "literals": [
+          "solidity",
+          "^",
+          "0.8",
+          ".13"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "39:24:1"
+      },
+      {
+        "abstract": false,
+        "baseContracts": [],
+        "canonicalName": "Contract",
+        "contractDependencies": [],
+        "contractKind": "contract",
+        "fullyImplemented": true,
+        "id": 1801,
+        "linearizedBaseContracts": [
+          1801
+        ],
+        "name": "Contract",
+        "nameLocation": "74:8:1",
+        "nodeType": "ContractDefinition",
+        "nodes": [
+          {
+            "constant": false,
+            "functionSelector": "8381f58a",
+            "id": 1790,
+            "mutability": "mutable",
+            "name": "number",
+            "nameLocation": "104:6:1",
+            "nodeType": "VariableDeclaration",
+            "scope": 1801,
+            "src": "89:21:1",
+            "stateVariable": true,
+            "storageLocation": "default",
+            "typeDescriptions": {
+              "typeIdentifier": "t_uint256",
+              "typeString": "uint256"
+            },
+            "typeName": {
+              "id": 1789,
+              "name": "uint256",
+              "nodeType": "ElementaryTypeName",
+              "src": "89:7:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_uint256",
+                "typeString": "uint256"
+              }
+            },
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 1799,
+              "nodeType": "Block",
+              "src": "162:35:1",
+              "statements": [
+                {
+                  "expression": {
+                    "id": 1797,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": false,
+                    "lValueRequested": false,
+                    "leftHandSide": {
+                      "id": 1795,
+                      "name": "number",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1790,
+                      "src": "172:6:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "nodeType": "Assignment",
+                    "operator": "=",
+                    "rightHandSide": {
+                      "id": 1796,
+                      "name": "newNumber",
+                      "nodeType": "Identifier",
+                      "overloadedDeclarations": [],
+                      "referencedDeclaration": 1792,
+                      "src": "181:9:1",
+                      "typeDescriptions": {
+                        "typeIdentifier": "t_uint256",
+                        "typeString": "uint256"
+                      }
+                    },
+                    "src": "172:18:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "id": 1798,
+                  "nodeType": "ExpressionStatement",
+                  "src": "172:18:1"
+                }
+              ]
+            },
+            "functionSelector": "3fb5c1cb",
+            "id": 1800,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "setNumber",
+            "nameLocation": "126:9:1",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 1793,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 1792,
+                  "mutability": "mutable",
+                  "name": "newNumber",
+                  "nameLocation": "144:9:1",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 1800,
+                  "src": "136:17:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 1791,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "136:7:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                }
+              ],
+              "src": "135:19:1"
+            },
+            "returnParameters": {
+              "id": 1794,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "162:0:1"
+            },
+            "scope": 1801,
+            "src": "117:80:1",
+            "stateMutability": "nonpayable",
+            "virtual": false,
+            "visibility": "public"
+          }
+        ],
+        "scope": 1802,
+        "src": "65:134:1",
+        "usedErrors": []
+      }
+    ],
+    "src": "39:161:1"
+  }
+}
