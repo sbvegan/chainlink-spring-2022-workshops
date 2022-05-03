@@ -2,20 +2,24 @@
 
 pragma solidity ^0.8.7;
 
-import "@chainlink/contracts/src/v0.8/KeeperCompatible.sol";
+import "@chainlink/contracts/src/v0.8/VRFConsumerBaseV2.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/VRFCoordinatorV2Interface.sol";
 
 error Raffle__SendMoreToEnterRaffle();
 error Raffle__RaffleNotOpen();
 error Raffle__UpkeepNotNeeded();
+error Raffle__TransferFailed();
 
-contract Raffle is KeeperCompatibleInterface {
+contract Raffle is VRFConsumerBaseV2 {
     enum RaffleState {
         Open,
         Calculating
     }
 
     event RaffleEnter(address indexed player);
+    event RequestedRaffleWinner(uint256 indexed requestId);
+    event WinnerPicked(address indexed winner);
+    address public s_recentWinner;
 
     RaffleState public s_raffleState;
     uint256 public immutable i_entranceFee;
@@ -37,7 +41,7 @@ contract Raffle is KeeperCompatibleInterface {
         bytes32 gasLane, // keyhash
         uint64 subscriptionId,
         uint32 callbackGasLimit
-    ) {
+    ) VRFConsumerBaseV2(vrfCoordinatorV2) {
         i_entranceFee = entranceFee;
         i_interval = interval;
         s_lastTimestamp = block.timestamp;
@@ -80,11 +84,38 @@ contract Raffle is KeeperCompatibleInterface {
         return (upkeepNeeded, "0x0");
     }
 
-    function performUpkeep(bytes calldata) external {
+    function performUpkeep(
+        bytes calldata /* performData */
+    ) external {
         (bool upkeepNeeded, ) = checkUpkeep("");
         if (!upkeepNeeded) {
             revert Raffle__UpkeepNotNeeded();
         }
         s_raffleState = RaffleState.Calculating;
+        uint256 requestId = i_vrfCoordinator.requestRandomWords(
+            i_gasLane,
+            i_subscriptionId,
+            REQUEST_CONFIRMATIONS,
+            i_callbackGasLimit,
+            NUM_WORDS
+        );
+        emit RequestedRaffleWinner(requestId);
+    }
+
+    function fulfillRandomWords(
+        uint256, /*requestId */
+        uint256[] memory randomWords
+    ) internal override {
+        uint256 indexOfWinner = randomWords[0] % s_players.length;
+        address payable recentWinner = s_players[indexOfWinner];
+        s_recentWinner = recentWinner;
+        s_players = new address payable[](0);
+        s_raffleState = RaffleState.Open;
+        s_lastTimestamp = block.timestamp;
+        (bool success, ) = recentWinner.call{value: address(this).balance}("");
+        if (!success) {
+            revert Raffle__TransferFailed();
+        }
+        emit WinnerPicked(recentWinner);
     }
 }
